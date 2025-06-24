@@ -12,11 +12,12 @@ export async function getGaiaNarrative(memory, envData, ecoQuote, chapter) {
       `<ECO_QUOTE>: "${ecoQuote}"` }
   ];
 
+ //console.log(import.meta.env)
   const response = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer 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`   // veremos la clave en un segundo
+      "Authorization": `Bearer ${import.meta.env.VITE_OPENAI_KEY}`   // veremos la clave en un segundo
     },
     body: JSON.stringify({
       model: "gpt-4o",
