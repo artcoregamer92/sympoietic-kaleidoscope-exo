@@ -1,4 +1,3 @@
-<script type="module">
   import { getGaiaNarrative } from "./gaiaPrompt.js";
 
   // === PRUEBA RÁPIDA ===
@@ -13,20 +12,3 @@
     document.body.insertAdjacentHTML("beforeend",
       `<p style=\"color:var(--artcore-pink);max-width:600px\">${texto}</p>`);
   })();
-
-
-</script>
-
-<body>
-  <div style="display: flex; flex-direction: column; width: 400px; gap: 1rem;">
-
-    <textarea placeholder="Memoria..."></textarea>
-    <input type="text" placeholder="Datos ambientales">
-    <input type="text" placeholder="Eco quote">
-    <select name="chapter">
-      <option value="bosque_cristal">bosque de cristal</option>
-      <option value="grietas_toxicas">grietas toxicas</option>
-      <option value="valle_e_waste">valle e waste</option>
-    </select>
-  </div>
-</body>
