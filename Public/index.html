@@ -1,32 +1,42 @@
-<script type="module">
-  import { getGaiaNarrative } from "./gaiaPrompt.js";
+<!-- === FORMULARIO DE ENTRADA === -->
+<form id="exoForm" style="margin:2rem 0; max-width:600px">
+  <label>Tu recuerdo (máx. 240 caracteres)<br>
+    <textarea id="memoryInput" rows="3" maxlength="240" required
+      style="width:100%; padding:0.5rem"></textarea>
+  </label><br><br>
 
-  // === PRUEBA RÁPIDA ===
-  (async () => {
-    const texto = await getGaiaNarrative(
-      "La primera vez que vi nevar sobre los tejados de Bogotá…",
-      "temp=25°C, CO2=450ppm, PM25=10µg/m³, humedad=40%",
-      "Los árboles de sílice cantan cuando el tiempo se fractura.",
-      "bosque_de_cristal"
-    );
-    console.log(texto);            // lo verás en la consola del navegador
-    document.body.insertAdjacentHTML("beforeend",
-      `<p style=\"color:var(--artcore-pink);max-width:600px\">${texto}</p>`);
-  })();
-
-
-</script>
-
-<body>
-  <div style="display: flex; flex-direction: column; width: 400px; gap: 1rem;">
-
-    <textarea placeholder="Memoria..."></textarea>
-    <input type="text" placeholder="Datos ambientales">
-    <input type="text" placeholder="Eco quote">
-    <select name="chapter">
-      <option value="bosque_cristal">bosque de cristal</option>
-      <option value="grietas_toxicas">grietas toxicas</option>
-      <option value="valle_e_waste">valle e waste</option>
+  <label>Capítulo:<br>
+    <select id="chapterSelect" style="width:100%; padding:0.5rem">
+      <option value="bosque_de_cristal">Bosque de Cristal</option>
+      <option value="claro_grietas_toxicas">Claro de Grietas Tóxicas</option>
+      <option value="valle_e_waste">Valle de Desechos Electrónicos</option>
     </select>
-  </div>
+  </label><br><br>
+
+  <button type="submit" style="padding:0.6rem 1.2rem;
+    background:var(--artcore-pink); background-color: #eb0045; color:#fff; border:none;
+    cursor:pointer; font-weight:bold">Generar relato</button>
+</form>
+
+<!-- Contenedor del texto generado -->
+<div id="gaiaOutput" style="max-width:600px"></div>
+
+
+<!-- ==== SCRIPTS ==== -->
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+<script src="./sketch.js"></script>
+<script src="./env.js"></script>        <!-- ❶ vuelve a ponerlo -->
+<script type="module" src="./main.js"></script> <!-- ❷ SOLO el src, sin código dentro -->
 </body>
+</html>
+ 
+
+<head>
+  <!-- …lo que ya tengas… -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+
+
