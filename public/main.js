@@ -106,7 +106,8 @@ form.addEventListener("submit", async (e) => {
   const memory  = memoryEl.value.trim();
   const chapter = chapterEl.value;
   // datos ambientales manuales o simulados
-  const envData = `temp=${tempEl?.value || 27}°C, CO2=${co2El?.value || 450}ppm`;
+  const envData = getRandomEnvData();   // ← ahora se genera cada envío
+
 
   // eco-cita aleatoria (como ya lo tienes)
   const quotes   = ECO_QUOTES[chapter];
@@ -121,3 +122,36 @@ form.addEventListener("submit", async (e) => {
   if (window.receiveGaiaText) window.receiveGaiaText(text);
 });
 
+// ───── helpers ──────────────────────────────────────────
+function randomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function getRandomEnvData() {
+  const t   = randomInt(-5, 80);       // temperatura °C
+  const co2 = randomInt(350, 1200);   // ppm CO₂
+  const pm  = randomInt(5, 75);       // µg/m³ de PM2.5
+  const h   = randomInt(10, 90);      // humedad %
+  return `temp=${t}°C, CO2=${co2}ppm, PM25=${pm}µg/m³, humedad=${h}%`;
+}
+// ────────────────────────────────────────────────────────
+document.getElementById("exoForm").addEventListener("submit", () => {
+  const audio = document.getElementById("bgAudio");
+  if (audio.paused) audio.play();
+});
+
+// ────────────────────────────────────────────────────────
+// 1. referencia al elemento <audio> y al botón
+const audioElem   = document.getElementById("bgAudio");
+const audioToggle = document.getElementById("audioToggle");
+
+// 2. si el usuario nunca interactuó, habilita audio al primer clic en el botón
+audioToggle.addEventListener("click", () => {
+  if (audioElem.paused) {
+    audioElem.play();
+    audioToggle.textContent = "🔇 Pausar música";
+  } else {
+    audioElem.pause();
+    audioToggle.textContent = "🔊 Reanudar música";
+  }
+});

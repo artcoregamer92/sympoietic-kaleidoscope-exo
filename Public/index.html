@@ -1,42 +1,73 @@
-<!-- === FORMULARIO DE ENTRADA === -->
-<form id="exoForm" style="margin:2rem 0; max-width:600px">
-  <label>Tu recuerdo (máx. 240 caracteres)<br>
-    <textarea id="memoryInput" rows="3" maxlength="240" required
-      style="width:100%; padding:0.5rem"></textarea>
-  </label><br><br>
+<html>
+  <header>
+    <link rel="icon" href="data:,">
+    <link href="./style.css" rel="stylesheet"/>
+     <form id="exoForm" class="fondo-personalizado">
+      <div id="izquierda">
 
-  <label>Capítulo:<br>
-    <select id="chapterSelect" style="width:100%; padding:0.5rem">
-      <option value="bosque_de_cristal">Bosque de Cristal</option>
-      <option value="claro_grietas_toxicas">Claro de Grietas Tóxicas</option>
-      <option value="valle_e_waste">Valle de Desechos Electrónicos</option>
-    </select>
-  </label><br><br>
+  <div class="intro">
+    <h1>Sympoietic Kaleidoscope 「KAIROX」</h1>
+    <p>
+      <strong>GaIA</strong>, —la inteligencia bio‑algorítmica 
+      del brazalete de la bióloga crono-investigadora del planeta Kairox— nos invita a entrelazar
+      recuerdos humanos, pulsos ambientales y la voz mineral de un planeta al
+      borde del desajuste.
+      Escribe un fragmento de tu memoria y observa cómo el
+      bosque de datos se reconfigura en tiempo real.
+    </p>
+  </div>
 
-  <button type="submit" style="padding:0.6rem 1.2rem;
-    background:var(--artcore-pink); background-color: #eb0045; color:#fff; border:none;
-    cursor:pointer; font-weight:bold">Generar relato</button>
-</form>
+  <!-- === FORMULARIO DE ENTRADA === -->
 
+  <div id="izquierda">
+    <h2>Contribuye con tu recuerdo</h2>
+      <p>
+        Escribe una vivencia breve (≤ 240 caracteres). GaIA la fusionará con datos
+        ambientales y un susurro del planeta para generar una visión efímera.
+      </p>
+
+
+      <label>Tu recuerdo (máx. 240 caracteres)<br>
+        <textarea id="memoryInput" rows="3" maxlength="240" required
+          style="width:50%; padding:0.5rem"></textarea>
+      </label><br><br>
+
+      <label>Capítulo:<br>
+        <select id="chapterSelect" style="width:50%; padding:0.5rem">
+          <option value="bosque_de_cristal">Bosque de Cristal</option>
+          <option value="claro_grietas_toxicas">Claro de Grietas Tóxicas</option>
+          <option value="valle_e_waste">Valle de Desechos Electrónicos</option>
+        </select>
+      </label><br>
+
+      <button type="submit" style="padding:0.6rem 1.2rem;
+        background:var(--artcore-pink); background-color: #eb0045; color:#fff; border:none;
+        cursor:pointer; font-weight:bold">Generar relato</button>
+     
+      <button type="button" id="audioToggle" class="audio-btn">
+    🔊 Pausar música
+  </button>
+    </form>
+</header>
+
+<body>
 <!-- Contenedor del texto generado -->
-<div id="gaiaOutput" style="max-width:600px"></div>
+<div id="gaiaOutput"></div>
 
 
 <!-- ==== SCRIPTS ==== -->
 <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
 <script src="./sketch.js"></script>
-<script src="./env.js"></script>        <!-- ❶ vuelve a ponerlo -->
+
 <script type="module" src="./main.js"></script> <!-- ❷ SOLO el src, sin código dentro -->
+
+
 </body>
+<audio id="bgAudio" src="./assets/Experimental_Ambient_-_Sevennotes.mp3" loop preload="auto"></audio>
+
 </html>
  
 
-<head>
-  <!-- …lo que ya tengas… -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-</head>
 
 
 
