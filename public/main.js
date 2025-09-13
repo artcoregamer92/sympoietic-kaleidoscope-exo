@@ -109,7 +109,7 @@ form.addEventListener("submit", async (e) => {
   const envData = getRandomEnvData();   // ← ahora se genera cada envío
 
 
-  // eco-cita aleatoria (como ya lo tienes)
+  // eco-cita aleatoria según capítulo
   const quotes   = ECO_QUOTES[chapter];
   const ecoQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
