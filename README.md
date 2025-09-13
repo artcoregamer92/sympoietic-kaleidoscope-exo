@@ -1,1 +1,1 @@
-# sympoietic-kaleidoscope-exo
+# sympoietic-kaleidoscope-kairox
