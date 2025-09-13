@@ -118,7 +118,16 @@ drawParticles();
   }
 }
 
-
+// ====================  Glow sprite  ====================
+//function buildGlowSprite(d = 96) {
+  //glowSprite = createGraphics(d, d);
+  //glowSprite.noStroke();
+  //for (let r = d/2; r > 0; r--) {
+ //   const a = map(r, d/2, 0, 0, 220);        // curva de alpha
+  //  glowSprite.fill(255, a * 0.06);          // suave
+  //  glowSprite.circle(d/2, d/2, r*2);
+ // }
+//}
 
 // ====================  Helpers  ====================
 function regenParams(str) {
