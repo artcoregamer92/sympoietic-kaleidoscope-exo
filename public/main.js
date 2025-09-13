@@ -128,10 +128,10 @@ function randomInt(min, max) {
 }
 
 function getRandomEnvData() {
-  const t   = randomInt(-5, 80);       // temperatura °C
+  const t   = randomInt(-20, 80);       // temperatura °C
   const co2 = randomInt(350, 1200);   // ppm CO₂
   const pm  = randomInt(5, 75);       // µg/m³ de PM2.5
-  const h   = randomInt(10, 90);      // humedad %
+  const h   = randomInt(0, 100);      // humedad %
   return `temp=${t}°C, CO2=${co2}ppm, PM25=${pm}µg/m³, humedad=${h}%`;
 }
 // ────────────────────────────────────────────────────────
